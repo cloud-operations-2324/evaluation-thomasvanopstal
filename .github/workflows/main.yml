@@ -46,5 +46,6 @@ jobs:
         run: |
           git config --global user.name 'ThomasVanOpstal'
           git config --global user.email 'thomas.vanopstal@outlook.be'
-          git commit -am "updating image tag"
+          git add .
+          git commit -m "updating image tag"
           git push
