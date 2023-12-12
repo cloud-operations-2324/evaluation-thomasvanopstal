@@ -12,9 +12,8 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v2
-
-      - name: change into directory
-        run: cd ./nextjs-blog
+        with:
+          path: ./nextjs-blog
 
       - name: Install dependencies
         run: npm install
