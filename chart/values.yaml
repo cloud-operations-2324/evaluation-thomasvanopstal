@@ -1,9 +1,4 @@
 image:
   repository: thomasvanopstal/cloud_next
   tag: 3fbb3f9477c507122fb08c89c79a2ca43c54de01
-spec:
-  containers:
-    - name: cloud_next
-      image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-      ports:
-        - containerPort: 3000
+
