@@ -15,13 +15,10 @@ jobs:
         with:
           path: ./nextjs-blog
 
-      - name: install node
-        uses: actions/setup-node@v2
-        with:
-          node-version: "18.x"
-
       - name: Install dependencies
-        run: npm install
+        run: |
+          cd ./nextjs-blog
+          npm install
         working-directory: ./nextjs-blog
 
       - name: Run tests
@@ -36,6 +33,8 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v2
+        with:
+          path: ./nextjs-blog
 
       - name: Login to Docker Hub
         uses: docker/login-action@v3
