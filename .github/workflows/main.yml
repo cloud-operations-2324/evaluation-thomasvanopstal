@@ -13,7 +13,7 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v2
         with:
-          path: "/nextjs-blog"
+          path: "nextjs-blog"
 
       - name: Setup Node.js
         uses: actions/setup-node@v2
