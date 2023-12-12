@@ -22,7 +22,9 @@ jobs:
         working-directory: ./nextjs-blog
 
       - name: Run tests
-        run: npm test
+        run: |
+          cd ./nextjs-blog 
+          npm test
         working-directory: ./nextjs-blog
 
   build:
