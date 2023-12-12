@@ -12,10 +12,10 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v2
-        with:
-          repository: ThomasVanOpstal/cloud_next
-          ref: main
-          path: ./nextjs-blog
+
+      - name: change into directory
+        run: cd ./nextjs-blog
+
       - name: Install dependencies
         run: npm install
 
