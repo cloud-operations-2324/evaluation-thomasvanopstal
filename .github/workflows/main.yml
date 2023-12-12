@@ -17,9 +17,11 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+        working-directory: ./nextjs-blog
 
       - name: Run tests
         run: npm test
+        working-directory: ./nextjs-blog
 
   build:
     name: Build and Push the image
