@@ -3,7 +3,9 @@ name: Production Workflow
 on:
   release:
     types: [published, created]
-
+  push:
+    branches:
+      - main
 jobs:
   test:
     name: building and testing image
