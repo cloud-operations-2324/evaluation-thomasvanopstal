@@ -2,7 +2,7 @@ name: Production Workflow
 
 on:
   release:
-    types: [created, published]
+    types: [published]
 
 jobs:
   test:
