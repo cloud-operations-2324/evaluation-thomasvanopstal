@@ -59,14 +59,26 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v2
 
+      - name: Set up Git
+        run: |
+          git config --global user.name 'ThomasVanOpstal'
+          git config --global user.email 'thomas.vanopstal@outlook.be'
+
+      - name: Get tag
+        id: get_tag
+        run: |
+          git branch --show-current
+          git pull
+          echo "version=v$(npm pkg get version | tr -d '\"')" >> $GITHUB_OUTPUT
+
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ steps.create-release-tag.outputs.tag_name  }}
-          release_name: Release ${{ steps.create-release-tag.outputs.tag_name }}
+          tag_name: ${{ steps.get_tag.outputs.version  }}
+          release_name: Release ${{ steps.get_tag.outputs.version }}
           draft: false
           prerelease: false
 
