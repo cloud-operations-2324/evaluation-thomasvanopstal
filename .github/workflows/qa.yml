@@ -64,13 +64,6 @@ jobs:
           git config --global user.name 'ThomasVanOpstal'
           git config --global user.email 'thomas.vanopstal@outlook.be'
 
-      - name: Get tag
-        id: get_tag
-        run: |
-          git branch --show-current
-          git pull
-          echo "version=v$(npm pkg get version | tr -d '\"')" >> $GITHUB_OUTPUT
-
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
@@ -81,6 +74,13 @@ jobs:
           release_name: Release ${{ github.run_id  }}
           draft: false
           prerelease: false
+
+      - name: Upload Release Asset
+        uses: eregon/publish-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          release_id: ${{ steps.create_release.outputs.id }}
 
   update:
     name: Update Helm Manifests
