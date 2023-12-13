@@ -2,7 +2,8 @@ name: Production Workflow
 
 on:
   release:
-    types: [published]
+    types: [created, published]
+
 jobs:
   test:
     name: building and testing image
