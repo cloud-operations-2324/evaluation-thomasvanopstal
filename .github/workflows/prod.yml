@@ -1,11 +1,10 @@
 name: Production Workflow
 
 on:
-  release:
-    types: [published, created]
-  push:
-    branches:
-      - main
+  workflow_run:
+    workflows: ["Qa workflow"]
+    types:
+      - completed
 jobs:
   test:
     name: building and testing image
