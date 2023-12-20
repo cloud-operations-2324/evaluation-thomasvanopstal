@@ -3,7 +3,7 @@ name: Dev Workflow
 on:
   push:
     branches:
-      - "Feature/**"
+      - "main"
 jobs:
   test:
     name: building and testing image
