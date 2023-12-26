@@ -6,11 +6,11 @@ spec:
   scaleTargetRef:
     apiVersion: argoproj.io/v1alpha1
     kind: Rollout
-    name: helm-guestbook
+    name: blue-green-helm-guestbook
   triggers:
     - type: cron
       metadata:
-        timezone: Asia/Kolkata
-        start: 30 * * * *
-        end: 45 * * * *
-        desiredReplicas: "3"
+        timezone: Europe/Paris
+        start: 00 08 * * 1-5
+        end: 00 18 * * 1-5
+        desiredReplicas: "2"
