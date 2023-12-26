@@ -1,0 +1,14 @@
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: http-scaler
+spec:
+  scaleTargetRef:
+    name: { { template "helm-guestbook.name" . } }
+  triggers:
+    - type: cron
+      metadata:
+        timezone: Asia/Kolkata
+        start: 30 * * * *
+        end: 45 * * * *
+        desiredReplicas: "3"
