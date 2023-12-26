@@ -4,6 +4,7 @@ metadata:
   name: http-scaler
 spec:
   scaleTargetRef:
+    kind: Rollout
     name: helm-guestbook
   triggers:
     - type: cron
