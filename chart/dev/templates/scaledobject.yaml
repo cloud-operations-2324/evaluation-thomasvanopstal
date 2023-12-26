@@ -4,7 +4,7 @@ metadata:
   name: http-scaler
 spec:
   scaleTargetRef:
-    name: { { template "helm-guestbook.name" . } }
+    name: helm-guestbook
   triggers:
     - type: cron
       metadata:
