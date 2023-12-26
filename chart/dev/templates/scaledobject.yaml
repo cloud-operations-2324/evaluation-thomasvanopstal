@@ -13,4 +13,4 @@ spec:
         timezone: Europe/Paris
         start: 00 08 * * 1-5
         end: 00 18 * * 1-5
-        desiredReplicas: "2"
+        desiredReplicas: "3"
