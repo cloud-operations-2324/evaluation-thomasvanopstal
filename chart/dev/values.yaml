@@ -3,6 +3,7 @@
 # Declare variables to be passed into your templates.
 
 replicaCount: 1
+maxReplicaCount: 6
 
 image:
   repository: thomasvanopstal/cloud_next_dev
@@ -13,17 +14,17 @@ service:
   type: ClusterIP
   port: 80
 
-ingress:
-  enabled: true
-  annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-staging
-  path: /
-  hosts:
-    - "argorol.81.co.ucll.cloud"
-  tls:
-    - secretName: argorol-tls
-      hosts:
-        - "argorol.81.co.ucll.cloud"
+# ingress:
+#   enabled: true
+#   annotations:
+#     cert-manager.io/cluster-issuer: letsencrypt-staging
+#   path: /
+#   hosts:
+#     - "argorol.81.co.ucll.cloud"
+#   tls:
+#     - secretName: argorol-tls
+#       hosts:
+#         - "argorol.81.co.ucll.cloud"
 
 resources:
   {}
