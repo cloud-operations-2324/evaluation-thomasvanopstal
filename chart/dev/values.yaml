@@ -22,10 +22,10 @@ ingress:
   path: /
   hosts:
     - host: "bluegreenlive.81.co.ucll.cloud"
-      servicename: helm-guestbook
+      servicename: blue-green-helm-guestbook
       serviceport: 80
     - host: "bluegreenstaging.81.co.ucll.cloud"
-      servicename: helm-guestbook-preview
+      servicename: blue-green-helm-guestbook-preview
       serviceport: 80
   tls:
     - secretName: argorol-tls
