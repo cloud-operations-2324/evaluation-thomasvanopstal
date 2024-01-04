@@ -9,7 +9,8 @@ spec:
   ingressClassName: traefik
   tls:
     - hosts:
-        - {{ .Values.tls.hosts }}
+        - "bluegreenlive.81.co.ucll.cloud"
+        - "bluegreenstaging.81.co.ucll.cloud"
       secretName: {{ .Values.ingress.tls.secretName }}
   rules:
     - host: {{ .Values.ingress.hosts.liveHost }}
