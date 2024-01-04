@@ -2,34 +2,34 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: blue-green-ingress
-  namespace: {{ .Values.namespace }}}
+  namespace: { { .Values.namespace } }
   annotations:
-    kubernetes.io/ingress.class: {{ .Values.ingress.annotations.kubernetes.io/ingress.class }}
+    kubernetes.io/ingress.class:
+      { { .Values.ingress.annotations.kubernetes.io/ingress.class } }
 spec:
+  ingressClassName: traefik
   tls:
     - hosts:
-        - {{.Values.tls.hosts.hosts}}
-      secretName: {{.Values.ingress.tls.secretName}}}
+        - { { .Values.tls.hosts.hosts } }
+      secretName: { { .Values.ingress.tls.secretName } }
   rules:
-    ###### bluegreen.live.com will be a enduser facing web URL #######
-    - host: {{.Values.ingress.hosts.liveHost}}
+    - host: { { .Values.ingress.hosts.liveHost } }
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: {{.Values.ingress.hosts.serviceLiveName}}
+                name: { { .Values.ingress.hosts.serviceLiveName } }
                 port:
                   number: 80
-    ###### bluegreen.staging.com will be internal testing web URL (Like for new app version fucntionality for QA testers) ######
-    - host: {{.Values.ingress.hosts.stagingHost}}
+    - host: { { .Values.ingress.hosts.stagingHost } }
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: {{.Values.ingress.hosts.serviceStagingName}}
+                name: { { .Values.ingress.hosts.serviceStagingName } }
                 port:
                   number: 80
