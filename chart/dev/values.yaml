@@ -17,14 +17,21 @@ service:
 ingress:
   enabled: true
   annotations:
+    kubernetes.io/ingress.class: traefik
     cert-manager.io/cluster-issuer: letsencrypt-staging
   path: /
   hosts:
-    - "argorol.81.co.ucll.cloud"
+    - host: "bluegreenlive.81.co.ucll.cloud"
+      servicename: helm-guestbook
+      serviceport: 80
+    - host: "bluegreenstaging.81.co.ucll.cloud"
+      servicename: helm-guestbook-preview
+      serviceport: 80
   tls:
     - secretName: argorol-tls
       hosts:
-        - "argorol.81.co.ucll.cloud"
+        - host: "bluegreenlive.81.co.ucll.cloud"
+        - host: "bluegreenstaging.81.co.ucll.cloud"
 
 resources:
   {}
