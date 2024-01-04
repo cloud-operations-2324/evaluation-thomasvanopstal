@@ -2,9 +2,10 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: blue-green-ingress
-  namespace: {{ .Values.namespace }}
+  namespace: blue-green
   annotations:
     kubernetes.io/ingress.class: traefik
+    cert-manager.io/cluster-issuer: letsencrypt-staging
 spec:
   ingressClassName: traefik
   tls:
@@ -13,23 +14,23 @@ spec:
         - "bluegreenstaging.81.co.ucll.cloud"
       secretName: blue-green-tls
   rules:
-    - host: {{ .Values.ingress.hosts.liveHost }}
+    - host: "bluegreenlive.81.co.ucll.cloud"
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: {{ .Values.ingress.hosts.serviceLiveName }}
+                name: blue-green-helm-guestbook
                 port:
                   number: 80
-    - host: {{ .Values.ingress.hosts.stagingHost }}
+    - host: "bluegreenstaging.81.co.ucll.cloud"
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: {{ .Values.ingress.hosts.serviceStagingName }}
+                name: blue-green-helm-guestbook-preview
                 port:
                   number: 80
