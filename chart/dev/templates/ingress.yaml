@@ -11,7 +11,7 @@ spec:
     - hosts:
         - "bluegreenlive.81.co.ucll.cloud"
         - "bluegreenstaging.81.co.ucll.cloud"
-      secretName: {{ .Values.ingress.tls.secretName }}
+      secretName: {{ .Values.ingress.tls[0].secretName }}
   rules:
     - host: {{ .Values.ingress.hosts.liveHost }}
       http:
