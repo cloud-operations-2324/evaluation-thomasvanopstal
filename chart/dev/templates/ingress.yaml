@@ -5,16 +5,9 @@ metadata:
   namespace: blue-green
   annotations:
     kubernetes.io/ingress.class: traefik
-    cert-manager.io/cluster-issuer: letsencrypt-staging
 spec:
-  ingressClassName: traefik
-  tls:
-    - hosts:
-        - "bluegreenlive.81.co.ucll.cloud"
-        - "bluegreenstaging.81.co.ucll.cloud"
-      secretName: blue-green-tls
   rules:
-    - host: "bluegreenlive.81.co.ucll.cloud"
+    - host: bluegreenlive.81.co.ucll.cloud
       http:
         paths:
           - path: /
@@ -24,7 +17,7 @@ spec:
                 name: blue-green-helm-guestbook
                 port:
                   number: 80
-    - host: "bluegreenstaging.81.co.ucll.cloud"
+    - host: bluegreenstaging.81.co.ucll.cloud
       http:
         paths:
           - path: /
