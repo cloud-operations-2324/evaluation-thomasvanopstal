@@ -3,6 +3,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: {{ template "helm-guestbook.fullname" . }}
+  namespace: {{ .Values.namespace }}
   labels:
     app: {{ template "helm-guestbook.name" . }}
     chart: {{ template "helm-guestbook.chart" . }}
@@ -23,6 +24,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: {{ template "helm-guestbook.fullname" . }}-preview
+  namespace: {{ .Values.namespace }}
   labels:
     app: {{ template "helm-guestbook.name" . }}
     chart: {{ template "helm-guestbook.chart" . }}

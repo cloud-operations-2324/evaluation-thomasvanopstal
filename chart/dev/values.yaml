@@ -1,7 +1,7 @@
 # Default values for helm-guestbook.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
-
+namespace: blue-green
 replicaCount: 2
 maxReplicaCount: 6
 
@@ -21,17 +21,17 @@ ingress:
     cert-manager.io/cluster-issuer: letsencrypt-staging
   path: /
   hosts:
-    - host: "bluegreenlive.81.co.ucll.cloud"
-      servicename: blue-green-helm-guestbook
-      serviceport: 80
-    - host: "bluegreenstaging.81.co.ucll.cloud"
-      servicename: blue-green-helm-guestbook-preview
-      serviceport: 80
+    - liveHost: "bluegreenlive.81.co.ucll.cloud"
+      serviceLiveName: blue-green-helm-guestbook
+      serviceLivePort: 80
+    - stagingHost: "bluegreenstaging.81.co.ucll.cloud"
+      serviceStagingName: blue-green-helm-guestbook-preview
+      serviceStagingPort: 80
   tls:
     - secretName: argorol-tls
       hosts:
-        - host: "bluegreenlive.81.co.ucll.cloud"
-        - host: "bluegreenstaging.81.co.ucll.cloud"
+        - "bluegreenlive.81.co.ucll.cloud"
+        - "bluegreenstaging.81.co.ucll.cloud"
 
 resources:
   {}
