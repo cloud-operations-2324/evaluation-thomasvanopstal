@@ -1,10 +1,13 @@
 function count(number) {
-  return fetch("https://openfaas.81.co.ucll.cloud/function/countv2", {
+  const blob = new Blob([JSON.stringify({ number: number })], {
+    type: "application/json",
+  });
+  return fetch("http://openfaas.81.co.ucll.cloud/function/countv3", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ number: number }),
+    body: blob,
   })
     .then((response) => response.json())
     .then((data) => data);
