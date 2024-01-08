@@ -6,6 +6,12 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: traefik
 spec:
+  ingressClassName: traefik
+  tls:
+    - hosts:
+        - bluegreenlive.81.co.ucll.cloud
+        - bluegreenstaging.81.co.ucll.cloud
+      secretName: blue-green-certificate
   rules:
     - host: bluegreenlive.81.co.ucll.cloud
       http:
