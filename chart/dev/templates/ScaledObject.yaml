@@ -1,0 +1,21 @@
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: http-scaler
+spec:
+  scaleTargetRef:
+    apiVersion: argoproj.io/v1alpha1
+    kind: Rollout
+    name: blue-green-helm-guestbook
+  triggers:
+    - type: cron
+      metadata:
+        timezone: Europe/Paris
+        start: 00 08 * * 1-5
+        end: 00 18 * * 1-5
+        desiredReplicas: 3
+    - type: kubernetes-workload
+      metadata:
+        podSelector: "app=blue-green-helm-guestbook"
+        value: "0.5"
+        activationValue: "3.1"
