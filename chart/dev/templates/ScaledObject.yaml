@@ -2,12 +2,13 @@ apiVersion: keda.sh/v1alpha1
 kind: ScaledObject
 metadata:
   name: http-scaler
+  namespace: blue-green
 spec:
   scaleTargetRef:
     apiVersion: argoproj.io/v1alpha1
     kind: Rollout
-    name: {{ template "helm-guestbook.name" . }}
-    namespace: {{ .Values.namespace }}
+    name: blue-green-helm-guestbook
+    namespace: blue-green
   triggers:
     - type: cron
       metadata:
