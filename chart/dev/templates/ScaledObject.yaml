@@ -13,7 +13,7 @@ spec:
         timezone: Europe/Paris
         start: 00 08 * * 1-5
         end: 00 18 * * 1-5
-        desiredReplicas: 3
+        desiredReplicas: "3"
     - type: kubernetes-workload
       metadata:
         podSelector: "app=blue-green-helm-guestbook"
