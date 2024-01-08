@@ -7,6 +7,7 @@ spec:
     apiVersion: argoproj.io/v1alpha1
     kind: Rollout
     name: blue-green-helm-guestbook
+    namespace: {{ .Values.namespace }}
   triggers:
     - type: cron
       metadata:
