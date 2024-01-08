@@ -7,7 +7,7 @@ maxReplicaCount: 6
 
 image:
   repository: thomasvanopstal/cloud_next_dev
-  tag: 070f34ff802cc3858e6da00809e36db5f3ffef9a
+  tag: febaaf556e86aad95874ee414f93db40ef1cb6cb
   pullPolicy: IfNotPresent
 
 service:
