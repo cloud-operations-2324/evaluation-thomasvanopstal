@@ -6,7 +6,7 @@ spec:
   scaleTargetRef:
     apiVersion: argoproj.io/v1alpha1
     kind: Rollout
-    name: blue-green-helm-guestbook
+    name: {{ template "helm-guestbook.fullname" . }}
     namespace: {{ .Values.namespace }}
   triggers:
     - type: cron
