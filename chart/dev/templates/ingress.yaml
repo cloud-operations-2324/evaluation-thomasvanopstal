@@ -10,7 +10,7 @@ spec:
     - hosts:
         - bluegreenlive.81.co.ucll.cloud
         - bluegreenstaging.81.co.ucll.cloud
-      secretName: blue-green-certificate
+      secretName: blue-green-prod-certificate
   rules:
     - host: bluegreenlive.81.co.ucll.cloud
       http:
