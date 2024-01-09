@@ -5,6 +5,7 @@ metadata:
   namespace: blue-green
   annotations:
     kubernetes.io/ingress.class: traefik
+    cert-manager.io/cluster-issuer: letsencrypt-staging
 spec:
   ingressClassName: traefik
   tls:

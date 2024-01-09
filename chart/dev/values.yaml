@@ -16,22 +16,6 @@ service:
 
 ingress:
   enabled: true
-  # annotations:
-  #   kubernetes.io/ingress.class: traefik
-  #   cert-manager.io/cluster-issuer: letsencrypt-staging
-  # path: /
-  # hosts:
-  #   - livehost: "bluegreenlive.81.co.ucll.cloud"
-  #     servicename: blue-green-helm-guestbook
-  #     serviceport: 80
-  #   - staginghost: "bluegreenstaging.81.co.ucll.cloud"
-  #     servicename: blue-green-helm-guestbook-preview
-  #     serviceport: 80
-  # tls:
-  #   - secretname: argorol-tls
-  #     hosts:
-  #       - "bluegreenlive.81.co.ucll.cloud"
-  #       - "bluegreenstaging.81.co.ucll.cloud"
 
 resources:
   {}
