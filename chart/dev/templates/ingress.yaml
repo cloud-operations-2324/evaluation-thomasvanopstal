@@ -6,7 +6,7 @@ metadata:
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-staging
 spec:
-  ingressClassName: traefik
+  kubernetes.io/ingress.class: traefik
   tls:
     - hosts:
         - bluegreenlive.81.co.ucll.cloud
