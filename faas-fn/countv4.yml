@@ -1,0 +1,9 @@
+version: 1.0
+provider:
+  name: openfaas
+  gateway: https://openfaas.81.co.ucll.cloud
+functions:
+  countv4:
+    lang: python3-http-debian
+    handler: ./countv4
+    image: thomasvanopstal/countv4:latest
