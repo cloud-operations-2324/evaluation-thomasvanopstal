@@ -1,6 +1,6 @@
 async function Hello() {
   const data = await fetch(
-    "http://openfaas.81.co.ucll.cloud/function/countv3",
+    "https://openfaas.81.co.ucll.cloud/function/countv3",
     {
       method: "POST",
       headers: {
