@@ -21,9 +21,9 @@ export default function Home() {
         {message && <p className={styles.description}>Message: {message}</p>}
         <button className={styles.button}>
           <a
-            onClick={() => {
-              const data = countService.count(count);
-              setMessage(data);
+            onClick={async () => {
+              const data = await countService.Hello();
+              setMessage(data.result);
             }}
           >
             Press me!
