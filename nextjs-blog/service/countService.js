@@ -6,7 +6,7 @@ function Hello() {
     },
   })
     .then((response) => response.json())
-    .then((data) => data.body);
+    .then((data) => data.body.result);
 }
 export default {
   Hello,
