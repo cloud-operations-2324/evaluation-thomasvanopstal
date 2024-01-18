@@ -1,0 +1,10 @@
+apiVersion: openfaas.com/v1
+kind: Function
+metadata:
+  name: countv3
+  namespace: openfaas-fn
+spec:
+  name: countv3
+  image: thomasvanopstal/countv3:latest
+  environment:
+    FRONTAPP: "true"

@@ -1,0 +1,14 @@
+ingress:
+  enabled: true
+  hosts:
+    - host: openfaas.81.co.ucll.cloud
+      serviceName: gateway
+      servicePort: 8080
+  annotations:
+    kubernetes.io/ingress.class: traefik
+    cert-manager.io/cluster-issuer: letsencrypt-staging
+  tls:
+    - secretName: openfaas-tls
+      hosts:
+        - "openfaas.81.co.ucll.cloud"
+generateBasicAuth: false

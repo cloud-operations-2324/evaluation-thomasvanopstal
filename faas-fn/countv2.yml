@@ -1,9 +1,0 @@
-version: 1.0
-provider:
-  name: openfaas
-  gateway: https://openfaas.81.co.ucll.cloud
-functions:
-  countv2:
-    lang: node18
-    handler: ./countv2
-    image: thomasvanopstal/countv2:latest
